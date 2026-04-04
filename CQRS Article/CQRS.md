@@ -1,4 +1,5 @@
 # CQRS (Command Query Responsability Segregation)
+
 ## Introducción
 CQRS (*Command and Query Responsability Segregation*) o Segregación de Responsabilidades de Comandos y Consultas se trata de un patrón que permite separar las operaciones de lectura y escritura durante la gestión de persistencia de datos. Una de sus principales ventajas es que permite obtener un excelente rendimiento, escalabilidad y seguridad. Esta arquitectura tan particular tiene la gran ventaja de separar los procesos de escritura y lectura, minimizando de esta forma potenciales tipos de conflictos de fusión a nivel de dominio.
 
@@ -20,7 +21,10 @@ Para poder resolver todas estas cuestiones en los sistemas tradicionales, el pat
 
 Como CQRS separa los universos de las consultas de lectura y escritua, este patrón plantea una nueva arquitectura interesante. Lo más destacado es la gestión que podría darse en las fuentes de persistencia de datos. Es decir, CQRS podría trabajar con dos tipos de fuentes de datos distintas para mejorar su rendimiento. Una fuente de datos podría ser la encargada de gestionar las lecturas y la otra las escrituras. Ambas fuentes de datos deberían encontrarse bajo un esquema de replicación para mantener consistente los datos. Este CQRS junto a otras aplicaciones adicionales de terceros, pueden gestionar muy eficazmente todos estos procesos.
 
-![cqrs image 1](./images/cqrs-image-1.png) Figura 1 - CQRS y el Patrón MediatR
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-1.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 1:</b> CQRS y el Patrón MediatR</figcaption>
+</figure>
 
 Además la tecnología que proporciona CQRS admite el uso de colas para gestionar todas las consultas. Las colas permiten administrar cada uno de los procesos ejecutados en el contexto. Esto imprime directamente una mejor performance operativa.
 
@@ -32,7 +36,10 @@ Por otro lado, los comandos pueden hacer uso de las colas mediante la modalidad 
 ## Consultas
 Las consultas no modifican las bases de datos y por lo tanto, los datos se mantienen consistentes todo el tiempo. El rendimiento más óptimo es mantener en menoria las consultas mediante el uso de una caché. La agilidad de las respuestas de las consultas tienen su cede de rendimiento en este punto. Generalmente, las consultas de lectura suelen ser más lentas y consumir más recursos que la de escritura. Por este motivo se suelen destinar las consultas para que sean operativas en una base de datos a parte de la base de datos de persistencia. Bajo este escenario, se establecen dos tipos de fuentes de datos. Una utilizada para la lectura, la que hará uso de tecnologías que impriman mejor rendimiento como las bases de datos NoSQL o las orientadas a objetos como MongoDB. Mientras que las de escritura normalmente serán tipo de base de datos basadas en SQL relacionales tales como Microsoft SQL Server, Oracle Database, MySQL, PostgreSQL, etc. La separación permite lograr un mayor rendimiento general del sistema. Ver figura 2. 
 
-![cqrs image 2](./images/cqrs-image-2.png) Figura 2 -CQRS y el Patrón MediatR — Haciendo uso de dos Bases de Datos
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-2.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 2:</b> CQRS y el Patrón MediatR — Haciendo uso de dos Bases de Datos</figcaption>
+</figure>
 
 ## Generalidades
 Quizá la gran desventaja de CQRS por ahora es la de no poder generarse automáticamente a partir del esquema de la base de datos mediante el andamiaje de las herramientas de O/RM. No obstante, esto mismo se puede construir a mano. Además, también resulta posible personalizarlo muy convenientemente.
@@ -105,7 +112,10 @@ Supongamos que deseamos implementar una aplicación de chat donde los usuarios p
 
 A continuación, vamos a estudiar un ejemplo como caso de uso para comprender mejor su funcionamiento. 
 
-![cqrs image 3](./images/cqrs-image-3.png) Figura 3 - Digrama de Patrón Mediator — Parte del conjunto de patrones de Diseño de GoF. 
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-3.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 3:</b> Partes del conjunto de patrones de Diseño de GoF,</figcaption>
+</figure>
 
 El siguiente diagrama de la figura 3 describe un ejemplo que aplica el patrón Mediator. En el esquema podemos apreciar el uso de tres clases y una interface. Una de las clases es abstracta, la clase User, mientras las otras dos clases son comunes.
 
@@ -116,7 +126,10 @@ Si observamos bien los vínculos entre las clases e interfaces, podremos notar v
 ## La Librería MediatR
 Ahora que tenemos un conocimiento más claro del patrón Mediator, estamos listos para analizar y comprender mejor el funcionamiento de la librería MediatR. Ver figura 4.
 
-![cqrs image 4](./images/cqrs-image-4.png) Figura 4 — Esquema Simplificado Representativo de MediatR.
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-4.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 4:</b> Esquema Simplificado Representativo de MediatR.</figcaption>
+</figure>
 
 ## Descripción General de MediatR
 MediatR se trata de una librería de .NET cuyo nucleo opera como un mediador que actúa como arbitraje entre los componentes en la aplicación. Estos reciben las solicitudes desde los clientes para poder hallar el manejador apropiado para cada solicitud y luego, delegar la solicitud hacia otro mecanismo de manipulación de procesamiento.
@@ -161,8 +174,10 @@ En nuestro caso particular, vamos a describir en caso de estudio que hace uso de
 ## Aplicación — Caso de Uso
 La aplicación **Application** se trata de la “*clásica plantilla*” que ofrece Visual Studio como ASP.NET Core API RESTfull básica de prueba llamada WeatherForescast. Sin embargo, esta plantilla la he refactorizado para que adquiera el patrón de Arquitectura Limpia y también, utilice el patrón CQRS (*Command Query Responsability Segregation*) entre otros patrones más, como iremos viendo a lo largo de este artículo.
 
-![cqrs image 5](./images/cqrs-image-5.png) 
-Figura 5 — Arquitectura de la Solución.
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-5.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 5:</b> Arquitectura de la Solución.</figcaption>
+</figure>
 
 Como puedes apreciar en la figura 5, la solución contiene cuatro proyectos importantes. El proyecto llamado Api es el consumidor o cliente de la aplicación mientras que Application, Domain e Infrastructure forman parte de la arquitectura fundamental de la solución llamada DumyCQRS de **WeatherForescast**.
 
@@ -171,7 +186,10 @@ Cada una de las capas de la arquitectura han sido creadas en proyectos de librer
 ## Domain
 La capa Domain se encuentra en la parte más interna de la Arquitectura Limpia. Generalmente, es considerada como el core o núcleo de la arquitectura. Esta capa es independiendte de cualquier otra capa externa, tal es el caso de base de datos, los Frameworks o la interface del usuario. Básicamente, esta capa contiene entidades, valores de objeto, toda la lógica del negocio que representa los conceptos fundamentales y las reglas generales de la aplicación del **Domain**.
 
-![cqrs image 6](./images/cqrs-image-6.png) Figura 6 - Capa Domain (El dominio.) 
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-6.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 6:</b> Capa Domain (El dominio.)</figcaption>
+</figure>
 
 En la figura 6 podemos apreciar el Domain donde se ubican varias clases, registros y una interface. La carpeta WeatherForcasts contiene todos los recursos. Presta atención que el nombre de la carpeta está en plural mientras que la clase principal del dominio ubicado dentro del archivo WeatherForescast.cs está en singular. En efecto, esta es una regla de convención. Esta convención permite mejorar la organización de los namespace y también, de los distintos tipos de clases, registros, interfaces, enumeraciones, etc.
 
@@ -266,9 +284,12 @@ La capa **Infrastructure** es una capa externa alrededor de la capa de Domain. L
 
 La clave principal de la Arquitectura Limpia para la capa Infrastructure es depender de la capa **Domain** aunque resulta necesario señalar que la capa **Domain** siempre permanecerá totalmente independiente de la capa de **Infrastructure** incluso, cualquier otro tipo de implementación especial que se practique en esta.
 
-![cqrs image 7](./images/cqrs-image-7.png) Figura 7 - Capa Infrastructure (La infraestructura) 
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-7.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 7:</b> Capa Infrastructure (La infraestructura.)</figcaption>
+</figure>
 
-En la figura 3 podemos apreciar una carpeta llamada **Repositories** que es utilizada para albergar las clases encargadas de gestionar, en este caso en particular, todos los repositorios de la aplicación. El uso de la carpeta nos permite organizar mejor los namespace y los recursos del proyecto. Por último, por convención, las clases se nombran como "**<<entidad_repositorio>>**" por ejemplo y es nuestro caso **WeatherForecastRepository**.
+En la figura 7 podemos apreciar una carpeta llamada **Repositories** que es utilizada para albergar las clases encargadas de gestionar, en este caso en particular, todos los repositorios de la aplicación. El uso de la carpeta nos permite organizar mejor los namespace y los recursos del proyecto. Por último, por convención, las clases se nombran como "**<<entidad_repositorio>>**" por ejemplo y es nuestro caso **WeatherForecastRepository**.
 
 A continuación, podemos apreciar todo el contenido de la clase para el repositorio de nuestra aplicación. Te recuerdo que este repositorio tiene partes hardcodeadas para poder hacer uso en la memoria como prueba general. No obstante, la inclusión de algún tipo de origen de fuente de datos o una base de datos podría añadirse sin problema alguno. Tan solo se tendría que realizar una serie de cambios y adaptaciones.
 
@@ -526,7 +547,10 @@ La capa **Application** se ubica sobre la capa **Domain**. La capa **Application
 
 En la capa de **Application** vamos a encontrarnos con la implementación del patrón CQRS (*Command Query Responsability Segregation*). Este lo estudiaremos en detalle a continuación. 
 
-![cqrs image 8](./images/cqrs-image-8.png) Figura 8 - Capa Application (La aplicación.)
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-8.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 8:</b> Capa Application (La aplicación.)</figcaption>
+</figure>
 
 Como podemos apreciar en la figura 8, vemos cómo se encuentra distribuido cada una de las clases que nos permiten construir las distintas funcionalidades de nuestra aplicación. La capa Application tiene implementado CQRS (*Command Query Responsability Segregation*) para gestionar todos los procesos. Antes de describir por completo la capa **Application**, vamos a conocer algunos detalles particulares de CQRS (*Command Query Responsability Segregation*).
 
@@ -887,7 +911,10 @@ Como podemos ver, la clase para las inyecciones hacen uso de la configuración p
 ## Api
 Por último, pasamos a describir la aplicación que consume el resto de los recursos de la arquitectura descripta hasta el momento. Sencillamente, Api es una aplicación API RESTful utilizada para consumir los contratos que ofrece nuestro servicio interno de la aplicación para el clima.
 
-![cqrs image 9](./images/cqrs-image-9.png) Figura 9 - La capa API o infarce para el Cliente.
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-9.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 9:</b> La capa API o interface para el Cliente.</figcaption>
+</figure>
 
 El controlador de la clase de la aplicación API es utilizado para exponer cada uno de los contratos de las API a través de las distintas operaciones del CRUD. 
 
@@ -951,7 +978,10 @@ public sealed class WeatherForecastUpdateCommandHandler
 
 Las operaciones las podremos probar con Swagger que se incorpora en este proyecto. Tu puedes utilizar cualquier otro tipo de programas para probar API como por ejemplo Postman. 
 
-![cqrs image 10](./images/cqrs-image-10.png) Figura 10 - Usando Swagger para probar las operaciones de CRUD de la aplicación.
+<figure style="text-align:center;">
+  <img src="./images/cqrs-image-10.png" alt="Arquitectura de la solución" width="600"/>
+  <figcaption><b>Figura 10:</b> Usando Swagger para probar las operaciones de CRUD de la aplicación.</figcaption>
+</figure>
 
 Con Swagger resulta posible probar cada una de las interacciones que requiere nuestra aplicación. Por lo tanto, podrás acoplar otras aplicaciones o programa para probar esta API e incluso, hasta crear una aplicación Frontend de cliente y luego consumir cada uno de estos endpoint de operación para la manipulación de los datos desde una interface gráfica e interactiva para el cliente de manera que la puedan utilizar los usuarios. 
 
