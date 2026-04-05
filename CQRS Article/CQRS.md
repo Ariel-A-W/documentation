@@ -988,7 +988,7 @@ Con Swagger resulta posible probar cada una de las interacciones que requiere nu
 ---
 
 # Repositorio
-Repositorio en GitLab de toda la solución la encuentras en el siguiente enlace. https://gitlab.com/dsentidades1/dumycqrs 
+Repositorio en GitLab de toda la solución la encuentras en el siguiente enlace. https://github.com/Ariel-A-W/documentation/tree/main/repo/dumycqrs
 
 ## Fuente
 
