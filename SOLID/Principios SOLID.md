@@ -137,7 +137,7 @@ class UnitTest {
 //
 // 1 - Juan Suarez Ingeniero 9:00hs a 17:00hs $250000
 // 2 - Ana Luisa Delmonte Analista de Sistemas 9:00hs a 17:00hs $180000
-// 3 -Pablo Luis Alcaraz Analista Funcional 9:00hs a 17:00hs $200000
+// 3 - Pablo Luis Alcaraz Analista Funcional 9:00hs a 17:00hs $200000
 // Hoja de Tiempo por Empleado:
 // 
 // 1 - 9:00hs a 17:00hs - Juan Suarez
