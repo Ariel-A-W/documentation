@@ -1,0 +1,6 @@
+@DumyCQRS_HostAddress = http://localhost:5291
+
+GET {{DumyCQRS_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

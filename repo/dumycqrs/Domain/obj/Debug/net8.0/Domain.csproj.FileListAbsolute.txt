@@ -1,0 +1,11 @@
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\bin\Debug\net8.0\Domain.dll
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\obj\Debug\net8.0\Domain.dll
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Users\Ariel\Desktop\Cursos\Udemy\Clean Architecture - Parte II\Dumy_Model\DumyCQRS\Domain\obj\Debug\net8.0\ref\Domain.dll
