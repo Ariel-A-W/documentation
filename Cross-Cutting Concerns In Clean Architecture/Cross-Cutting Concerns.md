@@ -80,4 +80,7 @@ Ahora bien, dentro del bloque try podemos apreciar el uso del método *invocar.P
 ## Fuente
 
 ### Autor: 
-- (Arq. e Ing.) Ariel Alejandro Wagner
+- (Arq. e Ing.) Ariel Alejandro Wagner 
+
+### Medios Relacionados:  
+https://medium.com/@arielwagnermovil/cross-cutting-concerns-in-clean-architecture-4ad90a2bbf98
