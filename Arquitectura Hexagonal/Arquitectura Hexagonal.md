@@ -468,4 +468,4 @@ En el código 5 podemos ver un archivo especial llamado dependencies.ts y que se
 
 ### Medios Relacionados:
 - (Publicación 1) - https://medium.com/@arielwagnermovil/arquitectura-hexagonal-parte-1-dcda312a68b6
-- (Publicación 2) https://medium.com/@arielwagnermovil/arquitectura-hexagonal-parte-2-7cb1703c83cf
+- (Publicación 2) -  https://medium.com/@arielwagnermovil/arquitectura-hexagonal-parte-2-7cb1703c83cf
